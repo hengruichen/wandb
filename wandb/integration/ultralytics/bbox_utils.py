@@ -197,3 +197,4 @@ def plot_validation_results(
         if batch_idx + 1 == max_validation_batches:
             break
     return table
+
