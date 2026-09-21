@@ -3,10 +3,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import torch
 from ultralytics.engine.results import Results
 from ultralytics.models.yolo.detect import DetectionPredictor
-try:
-    from ultralytics.yolo.utils import ops
-except ModuleNotFoundError:
-    from ultralytics.utils import ops
+from ultralytics.yolo.utils import ops
 
 import wandb
 

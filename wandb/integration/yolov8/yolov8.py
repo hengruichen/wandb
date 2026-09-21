@@ -2,13 +2,8 @@ from typing import Any, Callable, Dict, List, Optional
 
 from ultralytics.yolo.engine.model import YOLO
 from ultralytics.yolo.engine.trainer import BaseTrainer
-
-try:
-    from ultralytics.yolo.utils import RANK
-    from ultralytics.yolo.utils.torch_utils import get_flops, get_num_params
-except ModuleNotFoundError:
-    from ultralytics.utils import RANK
-    from ultralytics.utils.torch_utils import get_flops, get_num_params
+from ultralytics.yolo.utils import RANK
+from ultralytics.yolo.utils.torch_utils import get_flops, get_num_params
 from ultralytics.yolo.v8.classify.train import ClassificationTrainer
 
 import wandb
