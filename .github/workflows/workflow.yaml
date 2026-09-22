@@ -1,13 +1,15 @@
 name: pre-commit
 
-on:
-  pull_request:
-  push:
-    branches: [main]
+on: push
 
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    services:
+      pypi_wayback:
+        image: ghcr.io/waleko/pypi-wayback
+        ports:
+        - 8629:8080
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-go@v4
@@ -22,3 +24,7 @@ jobs:
         extra_args: --hook-stage pre-push --all-files
       env:
         SKIP: go-generate-graphql
+
+env:
+  PIP_INDEX_URL: http://localhost:8629/2023-10-24
+  UV_INDEX_URL: http://localhost:8629/2023-10-24
